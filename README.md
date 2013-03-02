@@ -57,3 +57,7 @@ to configure a default...
 So now, any port specified through the environment variable _MYPROJECT_PORT_ will
 be coerced to an integer.
 
+## Installation
+
+Confo is available from [Clojars](https://clojars.org/confo).
+
