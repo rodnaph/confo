@@ -35,9 +35,10 @@
 
 (defn confo [prefix & options]
   (let [pf (name prefix)
+        opts (apply hash-map options)
         config (->> (System/getenv)
                     (filter (partial has-prefix pf))
-                    (map (partial to-hash-map pf)))]
-    (merge (apply hash-map options)
-           (typed options config))))
+                    (map (partial to-hash-map pf))
+                    (apply merge))]
+    (merge opts (typed opts config))))
 
