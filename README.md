@@ -15,7 +15,7 @@ with the _confo_ function.
 (def config (confo :myproject))
 ```
 
-The _config_ symbol will now be a hash-map, loaded with any enviroment variables
+The _config_ symbol will now be a hash-map, loaded with any environment variables
 that match the name _myproject_.  So for instance you could have configuration
 like this...
 
