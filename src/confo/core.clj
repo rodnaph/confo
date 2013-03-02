@@ -14,7 +14,7 @@
                  (str (lower-case prefix) "_"))))
 
 (defn- with-type
-  "Tries to coece a value to a type, if the k is present in options"
+  "Tries to coerce a value to a type, if the k is present in options"
   [options k v]
   (if-let [option-val (get options k)]
     (cond
