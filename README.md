@@ -26,7 +26,7 @@ export MYPROJECT_BAR="some other value"
 
 And these will be available from as...
 
-```
+```clojure
 (:user config) ; => "foo"
 (:bar config) ; => "some other value"
 ```
@@ -36,7 +36,7 @@ And these will be available from as...
 You can also specify default values that will be used if any configuration is
 not specified.
 
-```
+```clojure
 (confo :myproject
        :port 123
        :name "Some Value")
@@ -49,7 +49,7 @@ environment variables to the matching type of their default.  So for instance
 if you need a port number to start your service on then you'll probably want
 to configure a default...
 
-```
+```clojure
 (def config (confo :myproject
                    :port 123))
 ```
