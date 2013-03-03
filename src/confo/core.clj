@@ -10,17 +10,17 @@
             (.getValue entry)))
 
 (defn- has-prefix [prefix string]
-  (= 0 (.indexOf (lower-case string)
-                 (str (lower-case prefix) "_"))))
+  (.startsWith (lower-case string)
+               (str (lower-case prefix) "_")))
 
 (defn- with-type
   "Tries to coerce a value to a type, if the k is present in options"
   [options k v]
-  (if-let [option-val (get options k)]
-    (cond
-      (integer? option-val) {k (Integer/parseInt v)}
-      :else {k v})
-    {k v}))
+  (hash-map k
+    (let [option (get options k)]
+      (cond
+        (integer? option) (Integer/parseInt v)
+        :else v))))
 
 (defn- typed
   "Coerce config values to matching types from options if they have a value specified there"
