@@ -1,17 +1,18 @@
 
 (ns confo.core
-  (:use [clojure.string :only [lower-case]]))
+  (:require [clojure.string :as s]))
 
 (defn- to-hash-map [prefix entry]
   (hash-map (-> (.getKey entry)
                 (subs (inc (count prefix)))
-                (lower-case)
+                (s/lower-case)
+                (s/replace "_" "-")
                 (keyword))
             (.getValue entry)))
 
 (defn- has-prefix [prefix string]
-  (.startsWith (lower-case string)
-               (str (lower-case prefix) "_")))
+  (.startsWith (s/lower-case string)
+               (str (s/lower-case prefix) "_")))
 
 (defn- with-type
   "Tries to coerce a value to a type, if the k is present in options"

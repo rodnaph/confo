@@ -22,13 +22,15 @@ like this...
 ```
 export MYPROJECT_USER="foo"
 export MYPROJECT_BAR="some other value"
+export MYPROJECT_WITH_BARS="bazzle"
 ```
 
 And these will be available from as...
 
 ```clojure
-(:user config) ; => "foo"
-(:bar config) ; => "some other value"
+(:user config)      ; => "foo"
+(:bar config)       ; => "some other value"
+(:with-bars config) ; => "bazzle"
 ```
 
 ## Defaults
