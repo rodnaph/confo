@@ -7,11 +7,11 @@
 
 (defmulti coerce class-of)
 
-(defmethod coerce Long
+(defmethod coerce java.lang.Long
   [option value]
   (Integer/parseInt value))
 
-(defmethod coerce IPersistentVector
+(defmethod coerce clojure.lang.IPersistentVector
   [option value]
   (s/split value #","))
 
