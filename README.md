@@ -78,3 +78,11 @@ Can become...
 
 Confo is available from [Clojars](https://clojars.org/confo).
 
+## Testing
+
+Unit testing provided by [Midje](https://github.com/marick/Midje)
+
+```
+lein midje
+```
+
