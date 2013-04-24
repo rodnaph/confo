@@ -7,7 +7,8 @@
 (def env (fn []
            (doto (Properties.)
              (.put "FOO_BAR" "123")
-             (.put "FOO_BAZ_ZLE" "foo"))))
+             (.put "FOO_BAZ_ZLE" "foo")
+             (.put "FOO_ARRAY" "one,two,three"))))
 
 (binding [core/getenv env]
 
@@ -19,5 +20,6 @@
     (:qwe (core/confo :foo :qwe 123)) => 123)
 
   (fact "defaults have types coerced"
-    (:bar (core/confo :foo :bar 456)) => 123))
+    (:bar (core/confo :foo :bar 456)) => 123
+    (:array (core/confo :foo :array [])) => ["one" "two" "three"]))
 

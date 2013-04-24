@@ -59,6 +59,21 @@ to configure a default...
 So now, any port specified through the environment variable _MYPROJECT_PORT_ will
 be coerced to an integer.
 
+### Vector CSVs
+
+Another "coercable" default is a CSV to a vector.  So...
+
+```
+export FOO_BAR="1,2,3"
+```
+
+Can become...
+
+```clojure
+(:bar (confo :foo 
+             :bar [])) ; => ["1" "2" "3"]
+```
+
 ## Installation
 
 Confo is available from [Clojars](https://clojars.org/confo).

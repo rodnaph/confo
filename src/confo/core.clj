@@ -21,6 +21,7 @@
     (let [option (get options k)]
       (cond
         (integer? option) (Integer/parseInt v)
+        (vector? option) (s/split v #",")
         :else v))))
 
 (defn- typed
