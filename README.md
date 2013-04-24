@@ -59,6 +59,8 @@ to configure a default...
 So now, any port specified through the environment variable _MYPROJECT_PORT_ will
 be coerced to an integer.
 
+This is available for extension via a multimethod _confo.core/coerce_.
+
 ### Vector CSVs
 
 Another "coercable" default is a CSV to a vector.  So...

@@ -2,6 +2,23 @@
 (ns confo.core
   (:require [clojure.string :as s]))
 
+(defn class-of [option value]
+  (class option))
+
+(defmulti coerce class-of)
+
+(defmethod coerce Long
+  [option value]
+  (Integer/parseInt value))
+
+(defmethod coerce IPersistentVector
+  [option value]
+  (s/split value #","))
+
+(defmethod coerce :default
+  [option value]
+  value)
+
 (defn- to-hash-map [prefix entry]
   (hash-map (-> (.getKey entry)
                 (subs (inc (count prefix)))
@@ -17,12 +34,7 @@
 (defn- with-type
   "Tries to coerce a value to a type, if the k is present in options"
   [options k v]
-  (hash-map k
-    (let [option (get options k)]
-      (cond
-        (integer? option) (Integer/parseInt v)
-        (vector? option) (s/split v #",")
-        :else v))))
+  (hash-map k (coerce (get options k) v)))
 
 (defn- typed
   "Coerce config values to matching types from options if they have a value specified there"

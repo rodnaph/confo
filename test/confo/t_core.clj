@@ -19,7 +19,7 @@
   (fact "vars can have defaults"
     (:qwe (core/confo :foo :qwe 123)) => 123)
 
-  (fact "defaults have types coerced"
+  (fact "defaults have types 'coerced'"
     (:bar (core/confo :foo :bar 456)) => 123
     (:array (core/confo :foo :array [])) => ["one" "two" "three"]))
 
