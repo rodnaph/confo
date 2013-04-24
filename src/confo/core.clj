@@ -34,10 +34,13 @@
 ;; Public
 ;; ------
 
+(defn ^:dynamic getenv []
+  (System/getenv))
+
 (defn confo [prefix & options]
   (let [pf (name prefix)
         opts (apply hash-map options)
-        config (->> (System/getenv)
+        config (->> (getenv)
                     (filter (partial has-prefix pf))
                     (map (partial to-hash-map pf))
                     (apply merge))]
