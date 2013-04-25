@@ -1,5 +1,5 @@
 
-# Easy Ambient Config
+# Easy Ambient Config [![Build Status](https://api.travis-ci.org/rodnaph/confo.png)](http://travis-ci.org/rodnaph/confo)
 
 Confo allows simple access to ambient configuration provided through environment variables.
 
