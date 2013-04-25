@@ -1,4 +1,3 @@
-
 (ns confo.core
   (:require [clojure.string :as s]))
 
@@ -31,15 +30,10 @@
   (.startsWith (s/lower-case string)
                (str (s/lower-case prefix) "_")))
 
-(defn- with-type
-  "Tries to coerce a value to a type, if the k is present in options"
-  [options k v]
-  (hash-map k (coerce (get options k) v)))
-
 (defn- typed
   "Coerce config values to matching types from options if they have a value specified there"
   [options config]
-  (->> (map (partial with-type options)
+  (->> (map #(hash-map %1 (coerce (get options %1) %2))
             (keys config)
             (vals config))
        (apply merge)))
