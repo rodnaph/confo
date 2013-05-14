@@ -1,5 +1,5 @@
 
-(defproject confo "0.4.0"
+(defproject confo "0.5.0"
   :description "Easy Ambient Config"
   :dependencies [[org.clojure/clojure "1.5.0"]]
   :profiles {:dev {:dependencies [[midje "1.5.1"]]}}
