@@ -61,6 +61,21 @@ be coerced to an integer.
 
 This is available for extension via a multimethod _confo.core/coerce_.
 
+### Keyword Parameters
+
+Defaults specified as keywords will be created as such.
+
+```
+export FOO_BUBBLE="bobble"
+```
+
+Will...
+
+```clojure
+(:bubble (confo :foo
+                :bubble :default)) ; => :bobble
+```
+
 ### Vector CSVs
 
 Another "coercable" default is a CSV to a vector.  So...

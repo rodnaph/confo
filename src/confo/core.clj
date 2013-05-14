@@ -14,6 +14,10 @@
   [option value]
   (s/split value #","))
 
+(defmethod coerce clojure.lang.Keyword
+  [option value]
+  (keyword value))
+
 (defmethod coerce :default
   [option value]
   value)
