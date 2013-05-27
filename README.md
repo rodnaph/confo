@@ -1,5 +1,5 @@
 
-# Easy Ambient Config [![Build Status](https://api.travis-ci.org/rodnaph/confo.png)](http://travis-ci.org/rodnaph/confo)
+# Easy Ambient Config [![Build Status](https://api.travis-ci.org/rodnaph/confo.png)](http://travis-ci.org/rodnaph/confo) [![Dependencies Status](http://clj-deps.herokuapp.com/github/rodnaph/confo/status.png)](http://clj-deps.herokuapp.com/github/rodnaph/confo)
 
 Confo allows simple access to ambient configuration provided through environment variables.
 
