@@ -93,7 +93,7 @@ Can become...
 
 ## Installation
 
-Confo is available from [Clojars](https://clojars.org/confo).
+Confo is available from [Clojars](https://clojars.org/rodnaph/confo).
 
 ## Testing
 
