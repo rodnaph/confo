@@ -6,6 +6,10 @@
 
 (defmulti coerce class-of)
 
+(defmethod coerce java.lang.Boolean
+  [option value]
+  (Boolean/parseBoolean value))
+
 (defmethod coerce java.lang.Long
   [option value]
   (Integer/parseInt value))

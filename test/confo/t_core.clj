@@ -9,6 +9,7 @@
              (.put "FOO_BAR" "123")
              (.put "FOO_BAZ_ZLE" "foo")
              (.put "FOO_BOB" "dob")
+             (.put "FOO_BOOL" "true")
              (.put "FOO_ARRAY" "one,two,three"))))
 
 (binding [core/getenv env]
@@ -23,5 +24,6 @@
   (fact "defaults have types 'coerced'"
     (:bar (core/confo :foo :bar 456)) => 123
     (:bob (core/confo :foo :bob :keyword)) => :dob
+    (:bool (core/confo :foo :bool false)) => true
     (:array (core/confo :foo :array [])) => ["one" "two" "three"]))
 

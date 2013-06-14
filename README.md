@@ -91,6 +91,17 @@ Can become...
              :bar [])) ; => ["1" "2" "3"]
 ```
 
+### Booleans
+
+```
+export FOO_ODB="true"
+```
+
+```clojure
+(:odb (confo :foo
+             :odb false)) ; => true
+```
+
 ## Installation
 
 Confo is available from [Clojars](https://clojars.org/rodnaph/confo).
