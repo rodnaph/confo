@@ -1,6 +1,6 @@
 
 (ns confo.t-core
-  (:require [confo.core :refer [confo]]
+  (:require [confo.core :refer [confo getenv]]
             [midje.sweet :refer :all])
   (:import (java.util Properties)))
 
@@ -12,7 +12,7 @@
              (.put "FOO_BOOL" "true")
              (.put "FOO_ARRAY" "one,two,three"))))
 
-(binding [core/getenv env]
+(binding [getenv env]
 
   (fact "vars can be fetched from the enviroment"
     (:bar (confo :foo)) => "123"
