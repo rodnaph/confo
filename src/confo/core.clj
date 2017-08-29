@@ -24,7 +24,9 @@
 
 (defmethod coerce :default
   [option value]
-  value)
+  (if (and (= "" value) (nil? option))
+    nil
+    value))
 
 (defn- to-hash-map [prefix entry]
   (hash-map (-> (.getKey entry)
