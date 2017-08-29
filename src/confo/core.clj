@@ -1,25 +1,25 @@
 (ns confo.core
   (:require [clojure.string :as s]))
 
-(defn class-of [option value]
+(defn class-of [option _]
   (class option))
 
 (defmulti coerce class-of)
 
 (defmethod coerce java.lang.Boolean
-  [option value]
+  [_ value]
   (Boolean/parseBoolean value))
 
 (defmethod coerce java.lang.Long
-  [option value]
+  [_ value]
   (Integer/parseInt value))
 
 (defmethod coerce clojure.lang.IPersistentVector
-  [option value]
+  [_ value]
   (s/split value #","))
 
 (defmethod coerce clojure.lang.Keyword
-  [option value]
+  [_ value]
   (keyword value))
 
 (defmethod coerce :default
@@ -62,4 +62,3 @@
                     (map (partial to-hash-map pf))
                     (apply merge))]
     (merge opts (typed opts config))))
-

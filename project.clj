@@ -1,7 +1,7 @@
-
 (defproject rodnaph/confo "0.7.0"
   :description "Easy Ambient Config"
-  :dependencies [[org.clojure/clojure "1.5.1"]]
-  :profiles {:dev {:dependencies [[midje "1.6.0"]]}}
-  :plugins [[lein-midje "3.1.3"]])
-
+  :profiles {:dev {:dependencies [[org.clojure/clojure "1.5.1"]
+                                  [midje "1.6.0"]
+                                  [cljfmt "0.5.6"]]
+                   :plugins [[lein-cljfmt "0.5.6"]
+                             [lein-midje "3.1.3"]]}})
