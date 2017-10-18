@@ -1,4 +1,4 @@
-(defproject rodnaph/confo "0.8.0"
+(defproject rodnaph/confo "0.9.0"
   :description "Easy Ambient Config"
   :profiles {:dev {:dependencies [[org.clojure/clojure "1.5.1"]
                                   [midje "1.6.0"]
