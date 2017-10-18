@@ -1,6 +1,14 @@
 (ns confo.core
   (:require [clojure.string :as s]))
 
+(defn kebab-case
+  [s]
+  (s/replace s "_" "-"))
+
+(defn snake-case
+  [s]
+  (s/replace s "-" "_"))
+
 (defn class-of [option _]
   (class option))
 
@@ -32,13 +40,13 @@
   (hash-map (-> (.getKey entry)
                 (subs (inc (count prefix)))
                 (s/lower-case)
-                (s/replace "_" "-")
+                (kebab-case)
                 (keyword))
             (.getValue entry)))
 
 (defn- has-prefix [prefix string]
   (.startsWith (s/lower-case string)
-               (str (s/lower-case prefix) "_")))
+               (str (s/lower-case (snake-case prefix)) "_")))
 
 (defn- typed
   "Coerce config values to matching types from options if they have a value specified there"

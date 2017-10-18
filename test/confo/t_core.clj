@@ -26,4 +26,7 @@
         (:bob (confo :foo :bob :keyword)) => :dob
         (:bool (confo :foo :bool false)) => true
         (:array (confo :foo :array [])) => ["one" "two" "three"]
-        (:blank (confo :foo :blank nil)) => nil))
+        (:blank (confo :foo :blank nil)) => nil)
+
+  (fact "app names can have dashes"
+        (:zle (confo :foo-baz :zle nil)) => "foo"))
